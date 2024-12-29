@@ -41,7 +41,7 @@ const Login = () => {
 
     // ユーザーのemailとpasswordを使いログイン
     await signInWithEmailAndPassword(auth, data.email, data.password).then(userCredential => {
-      // const user = userCredential.user;
+      const user = userCredential.user;
 
       router.push("/");
     }).catch(error => {
@@ -65,7 +65,7 @@ const Login = () => {
 
       <form
         onSubmit={ handleSubmit(onSubmit) }
-        className="bg-white p-8 rounded-lg shadow- md w-96"
+        className="bg-white p-8 rounded-lg shadow-md w-96"
       >
         <h1 className="mb-4 text-2xl text-gray-700 font-medium">Login</h1>
         
@@ -101,7 +101,7 @@ const Login = () => {
             {...register("password", {
               required: {
                 value: true,
-                message: "メールアドレスを入力してください"
+                message: "パスワードを入力してください"
               },
               minLength: {
                 value: 6,
